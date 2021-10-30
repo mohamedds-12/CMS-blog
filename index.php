@@ -20,7 +20,7 @@
         <h1 class="my-4">The Most Beautiful Natural Wonders</h1>
 
         <?php
-      
+        // Get post by category
         if (isset($_GET['id'])):
           $post_id = $_GET['id'];
           $clause = "WHERE post_category_id = $post_id AND post_status = 'Published' ORDER BY post_id DESC";
@@ -79,12 +79,10 @@
                 Posted on <?php echo substr($post_date, 0, 11) ?>
                 at <?php echo substr($post_date, 10, 9) ?>
                 by <?php echo $post_author ?>
-
               </div>
             </div>
           <?php endwhile ?>
         <?php endif ?>
-
       </div>
 
       <!-- Sidebar Widgets Column -->
