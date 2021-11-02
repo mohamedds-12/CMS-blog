@@ -17,16 +17,16 @@
 
                 <?php
                 
-                if (isset($_GET['delete_id'])) :
-
+                if (isset($_GET['delete_id']) && $_GET['delete_id'] != 1) :
                     $user_id = $_GET['delete_id'];
+
                 ?>
                     <form action='' method='GET'>
                         <div class='form-group'>
                             <h3>Are you sure you want to delete this User Account?</h3>
                         </div>
                         <div class='form-group'>
-                            <button class='btn btn-danger' type='submit' name='yes' value='<?php echo $user_id ?>'>Yes</button>
+                            <button class='btn btn-danger' type='submit' name='yes' >Yes</button>
                             <input class='btn btn-info' type='submit' name='no' value="No">
                         </div>
                     </form>
@@ -35,12 +35,11 @@
                 <?php
                 if (isset($_GET['yes'])) {
 
-                    $user_id = $_GET['yes'];
                     deleteData('users', 'user_id', $user_id);
                 } else {
                 };
 
-                if (isset($_GET['edit_id'])) :
+                if (isset($_GET['edit_id']) && $_GET['edit_id'] != 1) :
 
                     $user_id = $_GET['edit_id'];
                     $clause = "INNER JOIN roles ON role_id = user_role_id 

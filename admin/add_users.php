@@ -17,15 +17,15 @@
                 <?php
                 if (isset($_POST['create_account'])) {
                     if (empty($_POST['user_firstname']) or empty($_POST['user_lastname']) or empty($_POST['username']) or empty($_POST['user_password']) or empty($_POST['user_email'])or empty($_POST['user_role_id'])) {
+                        // check empty fields
                         echo "<h5 style='color:red'>Account submission failed! Please try again</h5>";
 
                     } elseif($_POST['user_password'] !== $_POST['confirm_password']) {
+                        // check password matching
                         echo "<h5 style='color:red'>Password doesn't match! Please try again.</h5>";
 
-                    } elseif($v = 5) {
-                        // check username duplication
-                        
                     } else {
+                        // insert data to db
                         foreach ($_POST as $key => $value) {
                                            
                             $_POST[$key] = mysqli_real_escape_string($connection, $value);
@@ -61,11 +61,10 @@
                             }
                         }
 
-                        
                         // insert email, get it's id
                         insertOneData('emails', 'email', $email);
                         $clause = "WHERE email = '$email'";
-                        $selectData('emails', $clause);
+                        selectData('emails', $clause);
                         $row = mysqli_fetch_assoc($selectData);
                         $email_id = $row['email_id'];
 
@@ -74,7 +73,10 @@
 
                         header("Location: view_users.php");
                     }
+                } else {
+                    echo 'signup is not set';
                 }
+
                 ?>
 
                 <form action='' method='POST' enctype='multipart/form-data'>

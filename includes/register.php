@@ -41,9 +41,9 @@
                                             $password = $_POST['user_password'];
                                             $username = $_POST['username'];
                                             
-                                            // inserting email to emails
+                                            // inserting email to emails table
                                             insertOneData('emails', 'email', $email);
-                                            // getting email id
+                                            // getting email id from emails table
                                             $clause = "WHERE email = '$email'";
                                             selectData('emails', $clause);
                                             $row = mysqli_fetch_assoc($selectData);
@@ -58,7 +58,6 @@
                                             
                                         }
                                     }
-
                                     ?>
 
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Registration</h3></div>

@@ -1,6 +1,6 @@
 <?php
 
-$connection = mysqli_connect('localhost', 'root', 'mohamed', 'cms_db');
+$connection = mysqli_connect('localhost', 'root', '', 'cms_db');
 if (!$connection) {
     die("DATABASE CONNECTION FAILED " . mysqli_connect_error($connection));
 }
