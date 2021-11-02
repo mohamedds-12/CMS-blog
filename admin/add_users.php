@@ -73,8 +73,6 @@
 
                         header("Location: view_users.php");
                     }
-                } else {
-                    echo 'signup is not set';
                 }
 
                 ?>
